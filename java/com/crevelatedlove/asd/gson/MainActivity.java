@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     //private final static String POST_URL= "";
 
     public static final String URL =
-            "http://blog.teamtreehouse.com/api/get_recent_summary/";
+            "http://www.apixela.net/android/json.json";
 
     private ListView mListView;
     private CustomAdapter mAdapter;
@@ -48,27 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                            Post clicked_post = (Post) parent.getItemAtPosition(position);
-                            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                            intent.putExtra(DetailActivity.POST_TITLE, clicked_post.getTitle());
-                            intent.putExtra(DetailActivity.POST_URL, clicked_post.getUrl());
-                            intent.putExtra(DetailActivity.POST_DATE, clicked_post.getDate());
-                            intent.putExtra(DetailActivity.POST_AUTHOR, clicked_post.getAuthor());
-                            intent.putExtra(DetailActivity.POST_THUMBNAIL, clicked_post.getThumbnail());
-                            startActivity(intent);
+                    Post clicked_post = (Post) parent.getItemAtPosition(position);
+                    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                    intent.putExtra(DetailActivity.POST_TITLE, clicked_post.getTitle());
+                    intent.putExtra(DetailActivity.POST_URL, clicked_post.getUrl());
+                    intent.putExtra(DetailActivity.POST_DATE, clicked_post.getDate());
+                    intent.putExtra(DetailActivity.POST_AUTHOR, clicked_post.getAuthor());
+                    intent.putExtra(DetailActivity.POST_THUMBNAIL, clicked_post.getThumbnail());
+                    startActivity(intent);
                     }
                 }
         );
-
-    }
-
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        Post clicked_post = (Post) l.getItemAtPosition(position);
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(DetailActivity.POST_TITLE, clicked_post.getTitle());
-        intent.putExtra(DetailActivity.POST_URL, clicked_post.getDate());
-        startActivity(intent);
 
     }
 

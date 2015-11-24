@@ -12,11 +12,11 @@ import android.widget.TextView;
 public class DetailActivity extends AppCompatActivity {
 
     private Post post;
-    public final static  String POST_TITLE= "";
-    public final static  String POST_URL= "";
-    public final static  String POST_DATE= "";
-    public final static  String POST_AUTHOR= "";
-    public final static  String POST_THUMBNAIL= "";
+    public final static String POST_TITLE= "";
+    public final static String POST_DATE= "";
+    public final static String POST_URL= "";
+    public final static String POST_AUTHOR= "";
+    public final static String POST_THUMBNAIL= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,10 @@ public class DetailActivity extends AppCompatActivity {
         TextView mDate = (TextView)findViewById(R.id.textView2);
         TextView mAuthor = (TextView)findViewById(R.id.textView3);
         TextView mThumbnail = (TextView)findViewById(R.id.textView4);
-        mURL.setText(post.getUrl());
-        mDate.setText(post.getDate());
-        mAuthor.setText(post.getAuthor());
-        mThumbnail.setText(post.getThumbnail());
+        mURL.setText(post.url);
+        mDate.setText(post.title);
+        mAuthor.setText(post.author);
+        mThumbnail.setText(post.thumbnail);
     }
 
 }
