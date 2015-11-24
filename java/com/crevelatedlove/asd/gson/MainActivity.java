@@ -1,9 +1,15 @@
 package com.crevelatedlove.asd.gson;
 
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -20,7 +26,9 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
+    //private final static String POST_TITLE= "";
+    //private final static String POST_URL= "";
 
     public static final String URL =
             "http://blog.teamtreehouse.com/api/get_recent_summary/";
@@ -34,8 +42,34 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mListView = (ListView) findViewById(R.id.listView);
-
         new SimpleTask().execute(URL);
+
+        mListView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            Post clicked_post = (Post) parent.getItemAtPosition(position);
+                            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                            intent.putExtra(DetailActivity.POST_TITLE, clicked_post.getTitle());
+                            intent.putExtra(DetailActivity.POST_URL, clicked_post.getUrl());
+                            intent.putExtra(DetailActivity.POST_DATE, clicked_post.getDate());
+                            intent.putExtra(DetailActivity.POST_AUTHOR, clicked_post.getAuthor());
+                            intent.putExtra(DetailActivity.POST_THUMBNAIL, clicked_post.getThumbnail());
+                            startActivity(intent);
+                    }
+                }
+        );
+
+    }
+
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Post clicked_post = (Post) l.getItemAtPosition(position);
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.POST_TITLE, clicked_post.getTitle());
+        intent.putExtra(DetailActivity.POST_URL, clicked_post.getDate());
+        startActivity(intent);
+
     }
 
     private class SimpleTask extends AsyncTask<String, Void, String> {

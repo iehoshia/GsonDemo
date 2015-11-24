@@ -11,6 +11,14 @@ public class Post {
     String author;
     String thumbnail;
 
+    public Post (String url, String title, String date, String author, String thumbnail) {
+        this.url = url;
+        this.title = title;
+        this.date = date;
+        this.author = author;
+        this.thumbnail = thumbnail;
+    }
+
     public int getId() {
         return id;
     }
