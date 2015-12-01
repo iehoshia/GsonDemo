@@ -27,8 +27,6 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    //private final static String POST_TITLE= "";
-    //private final static String POST_URL= "";
 
     public static final String URL =
             "http://www.apixela.net/android/json.json";

@@ -23,9 +23,10 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Intent intent = getIntent();
-        post = new Post(intent.getStringExtra(POST_URL), intent.getStringExtra(POST_TITLE),
-                intent.getStringExtra(POST_DATE), intent.getStringExtra(POST_AUTHOR),
-                intent.getStringExtra(POST_THUMBNAIL)                );
+        Bundle recData = intent.getExtras();
+        post = new Post(recData.getString(POST_URL), recData.getString(POST_TITLE),
+                recData.getString(POST_DATE), recData.getString(POST_AUTHOR),
+                recData.getString(POST_THUMBNAIL)                );
 
         TextView mURL = (TextView)findViewById(R.id.textView);
         TextView mDate = (TextView)findViewById(R.id.textView2);
