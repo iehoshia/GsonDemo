@@ -35,4 +35,10 @@
         android:text="Insertar"
         android:id="@+id/button2"
         android:onClick="insertarPost" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subir Image"
+        android:id="@+id/button3"
+        android:onClick="subirImagen" />
 </LinearLayout>

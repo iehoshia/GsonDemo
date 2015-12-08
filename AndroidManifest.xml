@@ -3,6 +3,8 @@
     package="com.crevelatedlove.asd.gson" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -42,8 +44,14 @@
         <activity
             android:name=".InsertPost"
             android:label="@string/title_activity_insert_post"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".LoginActivity">
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".UploadImage"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".UploadActivity" >
         </activity>
     </application>
 

@@ -41,6 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    public void subirImagen(View view){
+        Intent in = new Intent(this, UploadImage.class);
+        startActivity(in);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
