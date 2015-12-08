@@ -36,6 +36,11 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
+    public void insertarPost(View view){
+        Intent in = new Intent(this, InsertPost.class);
+        startActivity(in);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
